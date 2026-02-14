@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 33% 94%;
+    --foreground: 0 0% 17%;
+
+    --card: 30 33% 94%;
+    --card-foreground: 0 0% 17%;
+
+    --popover: 30 33% 94%;
+    --popover-foreground: 0 0% 17%;
+
+    --primary: 40 45% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 30% 90%;
+    --secondary-foreground: 0 0% 17%;
+
+    --muted: 20 30% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 20 30% 90%;
+    --accent-foreground: 0 0% 17%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 45% 57%;
+    --input: 40 45% 57%;
+    --ring: 40 45% 57%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* Fade-in on scroll animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Golden particle */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-120px) translateX(30px);
+    opacity: 0.3;
+  }
+}
+
+.gold-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: hsl(40, 45%, 57%);
+  opacity: 0;
+  pointer-events: none;
+  animation: float-particle 6s ease-in-out infinite;
+}
